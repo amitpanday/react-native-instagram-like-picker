@@ -9,8 +9,8 @@ import {
 import ImageEditor from '@react-native-community/image-editor';
 
 const ImageOffset = {
-    x: '',
-    y: ''
+    x: null,
+    y: null
 };
 
 const ImageSize = {

@@ -6,11 +6,11 @@ import {
     Text,
     ActivityIndicator,
     FlatList,
-    Image, TouchableOpacity, ImageBackground
+    Image, TouchableOpacity, ImageBackground, Modal, Dimensions
 } from 'react-native'
 import CameraRoll from '@react-native-community/cameraroll';
-// import Loader from '../component/loader';
 
+const { height, width } = Dimensions.get('screen');
 
 export default class FileColletor extends React.Component {
     constructor(props) {
@@ -62,7 +62,22 @@ export default class FileColletor extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                {/* <Loader loaderVisible={this.state.initialLoading} /> */}
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={this.state.initialLoading}
+                >
+                    <View style={{
+                        flex: 1,
+                        backgroundColor: '#00000080',
+                        paddingHorizontal: 10,
+                        paddingVertical: height / 8,
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                        <ActivityIndicator size="large" color="#fcab16" />
+                    </View>
+                </Modal>
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     numColumns={4}

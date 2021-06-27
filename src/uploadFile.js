@@ -25,11 +25,12 @@ class UploadFiles extends React.Component {
     onSelectImage = (data) => {
         const { node } = data;
         this.setState({ selectedImageData: node });
+        this.props.onSelectImage(data);
     }
 
-    onCropped = (data) => {
+    onCropped = () => {
         this.cropper.crop().then((cropImageUri) => {
-            console.log(cropImageUri)
+            this.props.onCropped(cropImageUri);
         });
     }
 
@@ -38,17 +39,17 @@ class UploadFiles extends React.Component {
             <View style={{ flex: 1, backgroundColor: '#000000' }}>
                 <View style={{ alignItems: 'center', height: 60, width: 420, flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 10, backgroundColor: 'rgba(100, 100, 100, 0.2)' }}>
                     <View style={{ marginLeft: 10, flexDirection: 'row', }}>
-                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <TouchableOpacity onPress={() => this.props.onClose()}>
                             <Image
                                 style={{ width: 25, height: 25, tintColor: '#FFFFFF' }}
                                 resizeMode={'contain'}
                                 source={require('./assets/close.png')}
                             />
                         </TouchableOpacity>
-                        <Text style={{ marginLeft: 25, color: '#FFFFFF', fontSize: 20, fontWeight: '500' }}>New Post</Text>
+                        <Text style={{ marginLeft: 25, color: '#FFFFFF', fontSize: 20, fontWeight: '500' }}>{this.props.headerTitle ? this.props.headerTitle : 'New Post'}</Text>
                     </View>
                     <View style={{ marginRight: 20 }}>
-                        <TouchableOpacity onPress={() => onClick('next')}>
+                        <TouchableOpacity onPress={() => this.onCropped()}>
                             <Image
                                 style={{ width: 35, height: 35, tintColor: '#3e50f0' }}
                                 resizeMode={'contain'}
