@@ -1,6 +1,6 @@
 {
   "name": "react-native-instagram-like-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pick image like instagram and manipulate it",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,11 @@
   },
   "keywords": [
     "react-native",
-    "infinite",
-    "scroll",
-    "looping"
+    "image-picker",
+    "react-components",
+    "instagram-image-picker",
+    "instagram-like-image-picker",
+    "image-cropper"
   ],
   "dependencies": {
     "@react-native-community/cameraroll": "^4.0.4",
@@ -31,5 +33,13 @@
     "react-test-renderer": "17.0.1"
   },
   "author": "Amit Panday",
-  "license": "ISC"
+  "license": "MIT",
+  "homepage": "https://github.com/amitpanday/react-native-instagram-like-picker#readme",
+  "bugs": {
+    "url": "https://github.com/amitpanday/react-native-instagram-like-picker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amitpanday/react-native-instagram-like-picker.git"
+  }
 }

@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Image, SectionList } from 'react-native';
+import { View, Image, Text, SectionList, TouchableOpacity } from 'react-native';
 
-import SubHeader from '../../component/subHeader';
-import FileColletor from '../../component/fileCollector';
-import Cropper from '../../component/cropper';
+import FileColletor from './fileCollector';
+import Cropper from './cropper';
 
 class UploadFiles extends React.Component {
 
@@ -37,7 +36,27 @@ class UploadFiles extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: '#000000' }}>
-                <SubHeader navigation={this.props.navigation} onClick={this.onCropped} />
+                <View style={{ alignItems: 'center', height: 60, width: 420, flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 10, backgroundColor: 'rgba(100, 100, 100, 0.2)' }}>
+                    <View style={{ marginLeft: 10, flexDirection: 'row', }}>
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Image
+                                style={{ width: 25, height: 25, tintColor: '#FFFFFF' }}
+                                resizeMode={'contain'}
+                                source={require('./assets/close.png')}
+                            />
+                        </TouchableOpacity>
+                        <Text style={{ marginLeft: 25, color: '#FFFFFF', fontSize: 20, fontWeight: '500' }}>New Post</Text>
+                    </View>
+                    <View style={{ marginRight: 20 }}>
+                        <TouchableOpacity onPress={() => onClick('next')}>
+                            <Image
+                                style={{ width: 35, height: 35, tintColor: '#3e50f0' }}
+                                resizeMode={'contain'}
+                                source={require('./assets/forward.png')}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                </View>
                 <View style={{ flex: 1, justifyContent: 'center' }}>
                     <SectionList
                         showsVerticalScrollIndicator={false}

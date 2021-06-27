@@ -9,7 +9,7 @@ import {
     Image, TouchableOpacity, ImageBackground
 } from 'react-native'
 import CameraRoll from '@react-native-community/cameraroll';
-import Loader from '../component/loader';
+// import Loader from '../component/loader';
 
 
 export default class FileColletor extends React.Component {
@@ -62,7 +62,7 @@ export default class FileColletor extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <Loader loaderVisible={this.state.initialLoading} />
+                {/* <Loader loaderVisible={this.state.initialLoading} /> */}
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     numColumns={4}
@@ -104,14 +104,14 @@ export default class FileColletor extends React.Component {
                         <View style={{ flexDirection: 'row', height: 45, justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 10 }}>
                             <TouchableOpacity style={{ flexDirection: 'row' }}>
                                 <Text style={{ fontWeight: '600', fontSize: 16, color: '#FFFFFF' }}>Gallery</Text>
-                                <Image resizeMode="contain" style={{ marginLeft: 10, width: 15, height: 15, tintColor: '#FFFFFF' }} source={require('../assets/down_a.png')} />
+                                <Image resizeMode="contain" style={{ marginLeft: 10, width: 15, height: 15, tintColor: '#FFFFFF' }} source={require('./assets/down_a.png')} />
                             </TouchableOpacity>
                             <View style={{ flexDirection: 'row' }}>
                                 <TouchableOpacity onPress={() => this.setState({ multipleSelected: !this.state.multipleSelected })} style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: !this.state.multipleSelected ? 'rgba(255,255,255,0.2)' : '#2473f0', height: 35, width: 35, borderRadius: 100, marginRight: 8 }}>
-                                    <Image resizeMode="contain" style={{ width: 22, height: 22, tintColor: '#FFFFFF' }} source={require('../assets/multi-copy.png')} />
+                                    <Image resizeMode="contain" style={{ width: 22, height: 22, tintColor: '#FFFFFF' }} source={require('./assets/multi-copy.png')} />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.2)', height: 35, width: 35, borderRadius: 100 }}>
-                                    <Image resizeMode="contain" style={{ width: 20, height: 20, tintColor: '#FFFFFF' }} source={require('../assets/camera.png')} />
+                                    <Image resizeMode="contain" style={{ width: 20, height: 20, tintColor: '#FFFFFF' }} source={require('./assets/camera.png')} />
                                 </TouchableOpacity>
                             </View>
                         </View>
