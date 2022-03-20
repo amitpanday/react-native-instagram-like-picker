@@ -37,11 +37,13 @@ export default class FileColletor extends React.Component {
                 delete fetchParams.groupTypes;
             }
             CameraRoll.getPhotos(fetchParams).then(result => {
-                this.setState({ images: result.edges, initialLoading: false });
+                this.setState({ images: result.edges });
                 this.props.onSelectImage(result.edges[0]);
             }).catch((err) => {
                 console.log(err)
             });
+            //Set state here to avoid infinite loading - iOS
+            this.setState({ initialLoading: false });
         } catch (error) {
             console.log(error)
         }
